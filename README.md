@@ -1,91 +1,85 @@
-Game AI: Reinforcement Learning in a Maze Solver
+# Game AI: Reinforcement Learning in a Maze Solver
 
-Overview
-
+## Overview
 This project focuses on developing an AI agent that learns to navigate through a maze using reinforcement learning techniques. The AI will find the shortest path to the goal by trial and error, improving its performance over time.
 
-Purpose
+---
 
+## Purpose
 The primary goals of this project are:
 
-To understand and implement reinforcement learning algorithms like Q-Learning.
+- To understand and implement reinforcement learning algorithms like Q-Learning.
+- To simulate a grid-based maze environment for training the agent.
+- To visualize the agent’s learning process and final solution.
 
-To simulate a grid-based maze environment for training the agent.
+---
 
-To visualize the agent’s learning process and final solution.
+## Features
 
-Features
+- **Customizable Maze:** Users can define their own maze layout.
+- **Interactive Visualization:** See the agent’s learning process and pathfinding steps in real-time.
+- **Learning Algorithm:** Q-Learning implementation for training the AI agent.
+- **Reward System:** Positive rewards for reaching the goal and negative rewards for hitting walls or invalid moves.
 
-Customizable Maze: Users can define their own maze layout.
+---
 
-Interactive Visualization: See the agent’s learning process and pathfinding steps in real-time.
+## Technologies Used
 
-Learning Algorithm: Q-Learning implementation for training the AI agent.
+- **Python 3.7+**
+- **NumPy:** For numerical operations.
+- **Matplotlib:** For visualization.
+- **Optional:** Pygame for a more interactive grid-based visualization.
 
-Reward System: Positive rewards for reaching the goal and negative rewards for hitting walls or invalid moves.
+---
 
-Technologies Used
+## How It Works
 
-Python 3.7+
-
-NumPy: For numerical operations.
-
-Matplotlib: For visualization.
-
-Optional: Pygame for a more interactive grid-based visualization.
-
-How It Works
-
-Environment:
+### Environment:
 
 A grid-based maze where each cell is either:
 
-Start Point
-
-Goal
-
-Path
-
-Obstacle
+- **Start Point**
+- **Goal**
+- **Path**
+- **Obstacle**
 
 The agent starts at a predefined position and explores the maze.
 
-Q-Learning:
+### Q-Learning:
 
 The agent learns through a trial-and-error process, updating its Q-table based on rewards.
 
-Formula: 
+Formula:
+\[ Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \max_a Q(s', a) - Q(s, a)] \]
 
-: Learning rate
+- \( \alpha \): Learning rate
+- \( \gamma \): Discount factor
+- \( r \): Reward for the action
 
-: Discount factor
+### Reward System:
 
-: Reward for the action
+- **+10** for reaching the goal.
+- **-1** for invalid moves or hitting obstacles.
+- **0** for valid moves.
 
-Reward System:
-
-+10 for reaching the goal.
-
--1 for invalid moves or hitting obstacles.
-
-0 for valid moves.
-
-Visualization:
+### Visualization:
 
 The agent’s exploration and the shortest path found are visualized step-by-step.
 
-Files Included
+---
 
-maze_solver.py: Main script for the maze environment and Q-Learning algorithm.
+## Files Included
 
-maze_config.json: A configuration file for defining custom maze layouts.
+- **`maze_solver.py`**: Main script for the maze environment and Q-Learning algorithm.
+- **`maze_config.json`**: A configuration file for defining custom maze layouts.
+- **`README.md`**: Documentation for the project.
+- **Optional:** A `visualizer.py` for interactive gameplay visualization using Pygame.
 
-README.md: Documentation for the project.
+---
 
-Optional: A visualizer.py for interactive gameplay visualization using Pygame.
+## Example Maze Layout
 
-Example Maze Layout
-
+```json
 {
   "maze": [
     ["S", "0", "0", "X", "G"],
@@ -95,26 +89,26 @@ Example Maze Layout
     ["0", "0", "0", "X", "0"]
   ]
 }
+```
 
-S: Start
+- **S**: Start
+- **G**: Goal
+- **0**: Open Path
+- **X**: Obstacle
 
-G: Goal
+---
 
-0: Open Path
+## Output
 
-X: Obstacle
-Output
+- **Console:** Displays the agent's learning process, Q-table updates, and the optimal policy.
+- **Visualization:** Matplotlib or grid-based visualization of the shortest path.
 
-Console: Displays the agent's learning process, Q-table updates, and the optimal policy.
+---
 
-Visualization: Matplotlib or grid-based visualization of the shortest path.
+## Improvements & Extensions
 
-Improvements & Extensions
+- Add dynamic obstacles to test the agent’s adaptability.
+- Implement other reinforcement learning algorithms like SARSA.
+- Use a larger or randomly generated maze.
+- Incorporate Pygame for better visualization and interaction.
 
-Add dynamic obstacles to test the agent’s adaptability.
-
-Implement other reinforcement learning algorithms like SARSA.
-
-Use a larger or randomly generated maze.
-
-Incorporate Pygame for better visualization and interaction.
